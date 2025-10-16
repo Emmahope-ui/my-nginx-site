@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buyer Form</title>
+</head>
+<body>
+    <h1>Buyer Information</h1>
+    <form action="/submit-buyer-info" method="post">
+       <label for="username">Username:</label><br>
+        <input type="text" id="username" name="username" required><br><br>
+
+        <label for="age">Age:</label><br>
+         <input type="number" id="age" name="age" required><br><br>
+
+        
+        <label for="gender">Gender:</label><br>
+        <select id="gender" name="gender" required>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+          <option value="other">Other</option>
+        </select><br><br>
+
+
+        <label for="contact">Contact:</label><br>
+        <input type="tel" id="contact" name="contact" pattern="[0-9]{10}" required><br><br>
+
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="id">ID:</label><br>
+        <input type="text" id="id" name="id" pattern="[A-Za-z0-9]{5,10}" required><br><br>
+
+        <label for="address">Address:</label><br>
+        <textarea id="address" name="address" rows="1" cols="20" minlength="5" required></textarea><br><br>
+
+        <input type="checkbox" id="terms" name="terms" required>
+        <label for="terms">I agree to all terms and conditions</label><br><br>
+
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

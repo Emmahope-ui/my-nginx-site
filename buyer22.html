@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buyer Form</title>
+    <link rel="icon" href="marketmuse logo.png" type="image/x-icon">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f9f9f9;
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+
+        form {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        input[type="checkbox"] {
+            width: auto;
+            margin-right: 10px;
+        }
+
+        #submit {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        #submit:hover {
+            background-color: #0056b3;
+        }
+        #rtn {
+            background-color: #25b661;
+            color: white;
+            border: none;
+            cursor: pointer;
+            width: 50px;
+            width: 30%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        #rtn:hover {
+            background-color: #30d876;
+        }
+
+        textarea {
+            resize: none;
+        }
+
+        h4 {
+            margin-top: 20px;
+            color: #555;
+        }
+
+        
+        .success-message {
+            display: none;
+            text-align: center;
+            color: green;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Buyer Information</h1>
+
+    <form id="buyerForm">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+
+        <h4>Payment Details</h4>
+
+        <label for="payment-method">Payment Method:</label>
+        <select id="payment-method" name="payment-method" required>
+            <option value="mastercard">Mastercard</option>
+            <option value="visa">Visa</option>
+            <option value="mobile-money">Mobile Money</option>
+            <option value="other">Other</option>
+        </select>
+
+        <label for="card-number">Card Number:</label>
+        <input type="text" id="card-number" name="card-number" pattern="[0-9]{16}" placeholder="Enter 16-digit card number">
+
+        <label for="expiry-date">Expiry Date:</label>
+        <input type="month" id="expiry-date" name="expiry-date">
+
+        <label for="cvv">CVV:</label>
+        <input type="text" id="cvv" name="cvv" pattern="[0-9]{3}" placeholder="Enter 3-digit CVV">
+
+        <label for="mobile-money-number">Mobile Money Number:</label>
+        <input type="tel" id="mobile-money-number" name="mobile-money-number" pattern="[0-9]{10}" placeholder="Enter Mobile Money Number">
+
+        <label for="other-payment-details">Other Payment Details:</label>
+        <textarea id="other-payment-details" name="other-payment-details" rows="2" placeholder="Enter details for other payment methods"></textarea>
+
+        <input type="checkbox" id="terms" name="terms" required>
+        <label for="terms">I agree to all terms and conditions</label>
+        <button id="submit"   type="submit">Submit</button>
+        <a href="homepage.html"><button type="button" id="rtn">Return home</button></a>
+
+        
+        <p class="success-message" id="successMessage">Form submitted successfully!</p>
+    </form>
+
+    <script>
+        document.getElementById('buyerForm').addEventListener('submit', function(event) {
+            event.preventDefault(); 
+
+           
+            document.getElementById('successMessage').style.display = 'block';
+
+            
+            alert("Thank you! Your buyer information has been submitted successfully.");
+
+            
+            this.reset();
+        });
+    </script>
+</body>
+</html>

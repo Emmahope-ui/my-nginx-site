@@ -1,0 +1,149 @@
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f9f9f9;
+    background-image: linear-gradient(to bottom, #f9f9f9, #fff);
+}
+
+main {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+header {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px 10px 0 0;
+    position: relative;
+}
+
+header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to bottom, #4CAF50, #3e8e41);
+    opacity: 0.5;
+    z-index: -1;
+}
+
+header h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+section {
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    position: relative;
+}
+
+section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to bottom, #f9f9f9, #fff);
+    opacity: 0.5;
+    z-index: -1;
+}
+
+section h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #666;
+}
+
+input[type="text"], input[type="email"], input[type="password"], select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+button {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+    background-color: #3e8e41;
+}
+
+a {
+    text-decoration: none;
+    color: #337ab7;
+}
+
+a:hover {
+    color: #23527c;
+}
+
+/* Responsive Design */
+
+@media only screen and (max-width: 768px) {
+    main {
+        margin: 20px auto;
+        padding: 10px;
+    }
+
+    section {
+        margin-bottom: 10px;
+        padding: 10px;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    main {
+        margin: 10px auto;
+        padding: 5px;
+    }
+
+    section {
+        margin-bottom: 5px;
+        padding: 5px;
+    }
+
+    button {
+        padding: 5px 10px;
+    }
+}

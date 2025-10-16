@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details</title>
+    <link rel="icon" href="marketmuse logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="product.css">
+</head>
+<body>
+    <style>
+        /* Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Global Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Container */
+.container {
+    max-width: 700px;
+    margin: 40px auto;
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover Effect */
+.container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Product Image */
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    transition: transform 0.3s ease;
+}
+
+/* Image Hover Effect */
+img:hover {
+    transform: scale(1.05);
+}
+
+/* Product Name */
+h1 {
+    font-size: 28px;
+    color: #2C3E50;
+    margin-bottom: 10px;
+}
+
+/* Product Price */
+#product-price {
+    font-size: 22px;
+    color: #1ABC9C;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* Product Description */
+#product-description {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 20px;
+    padding: 0 10px;
+}
+
+/* Buy Now Button */
+button {
+    width: 100%;
+    background-color: #1ABC9C;
+    color: white;
+    padding: 14px;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+/* Button Hover */
+button:hover {
+    background-color: #16a085;
+    transform: scale(1.05);
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+    .container {
+        width: 90%;
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    #product-price {
+        font-size: 20px;
+    }
+
+    button {
+        font-size: 16px;
+    }
+}
+
+    </style>
+
+<div class="container">
+    <h1 id="product-name"></h1>
+    <img id="product-image" src="" alt="Product Image">
+    <p id="product-price"></p>
+    <p id="product-description"></p>
+    <button class="add-to-cart-btn">Add to Cart</button>
+  </div>
+
+</body>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+    // Get product ID from URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const productId = urlParams.get('id');
+
+    // Define product details
+    const products = [
+    {
+        id: "1",
+        name: "Prada Luna Rossa Ocean",
+        image: "pictures/prada.webp",
+        price: "$19.99",
+        description: "A fresh and sophisticated fragrance with hints of bergamot and vetiver."
+    },
+    {
+        id: "2",
+        name: "Coach Floral Eau de Parfum",
+        image: "pictures/coach.jpg",
+        price: "$29.99",
+        description: "A floral and fruity scent with notes of citrus, pineapple, and jasmine."
+    },
+    {
+        id: "3",
+        name: "YSL Mon Paris",
+        image: "pictures/mon paris.webp",
+        price: "$29.99",
+        description: "A romantic fragrance featuring notes of raspberry, jasmine, and patchouli."
+    },
+    {
+        id: "4",
+        name: "Giorgio Armani My Way",
+        image: "pictures/my way.jpg",
+        price: "$29.99",
+        description: "A feminine scent with a blend of orange blossom, tuberose, and vanilla."
+    },
+    {
+        id: "5",
+        name: "Secret Plus Eau de Parfum",
+        image: "pictures/secret plus.webp",
+        price: "$29.99",
+        description: "A bold and long-lasting scent with warm and woody undertones."
+    },
+    {
+        id: "6",
+        name: "Paco Rabanne 1 Million",
+        image: "pictures/1 million.jpeg",
+        price: "$29.99",
+        description: "A spicy and luxurious fragrance with notes of cinnamon, amber, and leather."
+    },
+    {
+        id: "7",
+        name: "Rolex Submariner",
+        image: "pictures/rolex watch.png",
+        price: "$9,499.99",
+        description: "A luxury Swiss-made automatic watch with 300m water resistance."
+    },
+    {
+        id: "8",
+        name: "Casio G-Shock GA-2100",
+        image: "pictures/casio.jpg",
+        price: "$129.99",
+        description: "A durable, shock-resistant sports watch with a modern design."
+    },
+    {
+        id: "9",
+        name: "Apple Watch Series 9",
+        image: "pictures/apple-watch.jpg",
+        price: "$399.99",
+        description: "A smart fitness watch with advanced health tracking and GPS."
+    },
+    {
+        id: "10",
+        name: "Tissot PRX",
+        image: "pictures/tissot.jpg",
+        price: "$699.99",
+        description: "A stylish Swiss watch with automatic movement and sapphire glass."
+    },
+    {
+        id: "11",
+        name: "Omega Seamaster Diver",
+        image: "pictures/omega.jpg",
+        price: "$4,999.99",
+        description: "A high-end dive watch with Co-Axial movement and 600m water resistance."
+    },
+    {
+        id: "12",
+        name: "Fossil Chronograph",
+        image: "pictures/fossil.jpg",
+        price: "$89.99",
+        description: "A budget-friendly casual watch with a classic chronograph display."
+    }
+];
+
+
+
+    // Find the product based on ID
+    const product = products.find(p => p.id === productId);
+
+    // Display product details
+    if (product) {
+        document.getElementById('product-name').textContent = product.name;
+        document.getElementById('product-image').src = product.image;
+        document.getElementById('product-price').textContent = `Price: ${product.price}`;
+        document.getElementById('product-description').textContent = product.description;
+    } else {
+        document.body.innerHTML = "<h1>Product not found!</h1>";
+    }
+    const addBtn = document.querySelector('.add-to-cart-btn');
+      addBtn.addEventListener('click', () => {
+        // load or init cart
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        // prepare this item
+        const priceValue = parseFloat(product.price.replace(/[^0-9\.]/g, ''));
+        const existing = cart.find(item => item.id === product.id);
+        if (existing) {
+          existing.quantity += 1;
+        } else {
+          cart.push({
+            id: product.id,
+            name: product.name,
+            price: priceValue,
+            image: product.image,
+            quantity: 1
+          });
+        }
+
+        // save back to localStorage
+        localStorage.setItem('cart', JSON.stringify(cart));
+
+        // optional: feedback
+        alert(`✅ Added ${product.name} to cart!`);
+    });
+});
+</script>
+</html>

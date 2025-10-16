@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="marketmuse logo.png" type="image/x-icon">
+  <title>MarketMuse - Seller Dashboard</title>
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f9fc; /* Soft turquoise */
+      color: #333; /* Neutral text color */
+    }
+    .header {
+      background: #1ABC9C;
+      color: #fff;
+      padding: 20px 0;
+      text-align: center;
+      font-size: 2rem;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 20px auto;
+    }
+    #currency{
+        width: 100%;
+      max-width: 400px;
+      margin: 10px auto;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+
+    }
+    .upload-section {
+      background-color: #fff;
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .upload-section h2 {
+      color: #1ABC9C;
+      margin-bottom: 15px;
+    }
+    .upload-section label {
+      display: block;
+      margin: 10px 0;
+      font-weight: bold;
+    }
+    .upload-section input, .upload-section textarea, .upload-section button {
+      width: 100%;
+      max-width: 400px;
+      margin: 10px auto;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
+    .upload-section input[type="file"] {
+      padding: 5px;
+      
+    }
+    .upload-section button {
+      background-color: #1ABC9C;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .upload-section button:hover {
+      background-color: #28ffd4;
+    }
+    .preview {
+      margin-top: 15px;
+    }
+    .preview img {
+      max-width: 100%;
+      max-height: 200px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .submitbtn p{
+        text-decoration: none;
+        color: white;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    Welcome to MarketMuse Seller Dashboard
+  </div>
+  <div class="container">
+    <!-- Product Upload Section -->
+    <div class="upload-section">
+      <h2>Upload Your Product</h2>
+      <form id="productForm">
+        <label for="productName">Product Name:</label>
+        <input type="text" id="productName" name="productName" placeholder="Enter product name" required>
+
+        <label for="productDescription">Product Description:</label>
+        <textarea id="productDescription" name="productDescription" rows="4" placeholder="Enter product description" required></textarea>
+         
+        <label for="currency">Chose your currency</label>
+        <select id="currency">
+        <option>cedis</option>
+        <option>dollars</option>
+        <option>pounds</option>
+        </select><br>
+
+        <label for="productPrice">Price</label>
+        <input type="number" id="productPrice" name="productPrice" placeholder="Enter product price" required>
+
+        <label for="productImage">Upload Image:</label>
+        <input type="file" id="productImage" name="productImage" accept="image/*" capture="camera" required>
+
+        <div class="preview">
+          <img id="imagePreview" alt="Image Preview" style="display: none;">
+        </div>
+<div class="submitbtn">
+        <button type="submit"><a href="homepage.html"><p>Add Product</p></a></button>
+    </div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+// JavaScript for Image Preview
+const productImage = document.getElementById('productImage');
+const imagePreview = document.getElementById('imagePreview');
+
+productImage.addEventListener('change', function(event) {
+    const file = event.target.files[0];
+
+    if (file) {
+        if (!file.type.startsWith('image/')) {
+            alert('Please select a valid image file.');
+            return;
+        }
+
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            imagePreview.src = e.target.result;
+            imagePreview.style.display = 'block';
+        };
+        reader.readAsDataURL(file);
+    }
+});
+
+// JavaScript to Handle Form Submission
+const productForm = document.getElementById('productForm');
+
+productForm.addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const productName = document.getElementById('productName').value.trim();
+    const productDescription = document.getElementById('productDescription').value.trim();
+    const productPrice = document.getElementById('productPrice').value.trim();
+
+    if (!productName || !productDescription || !productPrice) {
+        alert('Please fill in all fields before submitting.');
+        return;
+    }
+
+    alert(`Product "${productName}" has been uploaded successfully!`);
+
+    // Here, you can add logic to send the data to the server using fetch/AJAX.
+});
+
+  </script>
+
+ 
+</body>
+</html>

@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seller Registration</title>
+    <link rel="stylesheet" href="accounts.css">
+    <link rel="icon" href="marketmuse logo.png" type="image/x-icon">
+</head>
+<body>
+    <style>
+/* Reset default browser styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    line-height: 1.6;
+    color: #333;
+    text-align: center;
+}
+
+/* Form Container */
+form {
+    background: white;
+    max-width: 450px;
+    margin: 30px auto;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+/* Form Headings */
+h1 {
+    color: #2C3E50;
+    margin-bottom: 20px;
+    font-size: 26px;
+}
+
+/* Labels */
+label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+    color: #2C3E50;
+}
+
+/* Input Fields */
+input, select, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Focus Effect on Inputs */
+input:focus, select:focus, textarea:focus {
+    border-color: #1ABC9C;
+    box-shadow: 0 0 5px rgba(26, 188, 156, 0.5);
+    outline: none;
+}
+
+/* Error Message Styling */
+.error {
+    color: red;
+    font-size: 12px;
+    display: none;
+    margin-top: -10px;
+    margin-bottom: 10px;
+}
+
+/* Submit Button */
+button {
+    width: 100%;
+    background-color: #1ABC9C;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s ease;
+}
+
+/* Button Hover */
+button:hover {
+    background-color: #16a085;
+}
+
+/* Terms Checkbox */
+label input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+    form {
+        width: 90%;
+        padding: 20px;
+    }
+}
+
+
+    </style>
+
+    <h1>Seller Information</h1>
+    <form id="registrationForm">
+        <!-- Username -->
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+        <br><br>
+
+        <!-- Email -->
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <span class="error" id="emailError">Please enter a valid email address</span>
+        <br><br>
+
+        <!-- Password -->
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        <br><br>
+
+        <!-- Repeat Password -->
+        <label for="repeatPassword">Repeat Password:</label>
+        <input type="password" id="repeatPassword" name="repeatPassword" required>
+        <span class="error" id="passwordError">Passwords do not match</span>
+        <br><br>
+
+        <!-- Gender -->
+        <label for="gender">Gender:</label>
+        <select id="gender" name="gender" required>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+        </select>
+        <br><br>
+
+        <!-- Date of Birth -->
+        <label for="dob">Date of Birth:</label>
+        <input type="date" id="dob" name="dob" required>
+        <br><br>
+
+        <!-- Age -->
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" required>
+        <br><br>
+
+        <!-- Marital Status -->
+        <label for="maritalStatus">Marital Status:</label>
+        <select id="maritalStatus" name="maritalStatus" required>
+            <option value="single">Single</option>
+            <option value="married">Married</option>
+            <option value="divorced">Divorced</option>
+            <option value="widowed">Widowed</option>
+        </select>
+        <br><br>
+
+        <!-- ID -->
+        <label for="id">ID:</label>
+        <input type="text" id="id" name="id" pattern="[A-Za-z0-9]{6,12}" title="ID must be 6-12 alphanumeric characters" required>
+        <br><br>
+
+        <!-- Residence -->
+        <label for="residence">Residence:</label>
+        <input type="text" id="residence" name="residence" required>
+        <br><br>
+
+        <!-- Country -->
+        <label for="country">Country:</label>
+        <input type="text" id="country" name="country" pattern="[A-Za-z\s]+" title="Enter a valid country name" required>
+        <br><br>
+
+        <!-- Contact -->
+        <label for="contact">Contact:</label>
+        <input type="tel" id="contact" name="contact" pattern="^\+?[0-9]{10,15}$" required>
+        <span class="error" id="phoneError">Invalid phone number</span>
+        <br><br>
+
+        <!-- Address -->
+        <label for="address">Address:</label>
+        <textarea id="address" name="address" rows="4" required></textarea>
+        <span class="error" id="addressError">Address must be at least 10 characters long</span>
+        <br><br>
+
+        <!-- Terms -->
+        <label>
+            <input type="checkbox" id="terms" name="terms" required>
+            I agree to the <a href="terms-and-conditions.html" target="_blank">terms and conditions</a>
+        </label>
+        <br><br>
+
+        <!-- Submit Button -->
+        <button type="submit">Sign Up</button>
+    </form>
+
+    <!-- External JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+    const form = document.getElementById('registrationForm');
+
+    // Error elements
+    const emailError = document.getElementById('emailError');
+    const passwordError = document.getElementById('passwordError');
+    const phoneError = document.getElementById('phoneError');
+    const addressError = document.getElementById('addressError');
+
+    // Event Listeners
+    document.getElementById('email').addEventListener('input', validateEmail);
+    document.getElementById('repeatPassword').addEventListener('input', validatePasswordMatch);
+    document.getElementById('contact').addEventListener('input', validatePhoneNumber);
+    document.getElementById('address').addEventListener('input', validateAddress);
+
+    form.addEventListener('submit', function (event) {
+        event.preventDefault();
+        if (validateForm()) {
+            alert("Seller account created successfully!");
+            window.location.href = 'seller page.html';
+        }
+    });
+
+    // Validation Functions
+    function validateEmail() {
+        const email = document.getElementById('email').value;
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        emailError.style.display = emailPattern.test(email) ? 'none' : 'inline';
+    }
+
+    function validatePasswordMatch() {
+        const password = document.getElementById('password').value;
+        const repeatPassword = document.getElementById('repeatPassword').value;
+        passwordError.style.display = password === repeatPassword ? 'none' : 'inline';
+    }
+
+    function validatePhoneNumber() {
+        const contact = document.getElementById('contact').value;
+        const phonePattern = /^\+?[0-9]{10,15}$/;
+        phoneError.style.display = phonePattern.test(contact) ? 'none' : 'inline';
+    }
+
+    function validateAddress() {
+        const address = document.getElementById('address').value;
+        addressError.style.display = address.length >= 10 ? 'none' : 'inline';
+    }
+
+    function validateForm() {
+        validateEmail();
+        validatePasswordMatch();
+        validatePhoneNumber();
+        validateAddress();
+
+        return (
+            emailError.style.display === 'none' &&
+            passwordError.style.display === 'none' &&
+            phoneError.style.display === 'none' &&
+            addressError.style.display === 'none'
+        );
+    }
+});
+
+    </script>
+
+</body>
+</html>

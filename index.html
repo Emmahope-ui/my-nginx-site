@@ -1,198 +1,448 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Cool Nginx Site</title>
-<style>
-  :root{
-    --bg1:#0f1724;
-    --bg2:#071028;
-    --accent: #00d4ff;
-    --muted:#9aa7b2;
-    --glass: rgba(255,255,255,0.06);
-  }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MarketMuse - Inspiring the Future of Retail</title>
+  <link rel="icon" href="marketmuse logo.png" type="image/x-icon">
+  <link rel="stylesheet" href="homepage.css" >
 
-  *{box-sizing:border-box}
-  html,body{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial}
-  body{
-    background: radial-gradient(1200px 600px at 10% 10%, rgba(0,212,255,0.06), transparent 8%),
-                radial-gradient(1000px 500px at 90% 90%, rgba(255,0,170,0.03), transparent 6%),
-                linear-gradient(180deg,var(--bg1),var(--bg2));
-    color:#e6eef6;
-    -webkit-font-smoothing:antialiased;
-    -moz-osx-font-smoothing:grayscale;
-    padding:2rem;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-  }
 
-  .card{
-    width:100%;
-    max-width:980px;
-    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-    border-radius:18px;
-    padding:2.2rem;
-    box-shadow: 0 10px 30px rgba(2,6,23,0.6);
-    position:relative;
-    overflow:hidden;
-    border:1px solid rgba(255,255,255,0.03);
-  }
-
-  /* animated blobs */
-  .blob{
-    position:absolute;
-    filter: blur(40px) saturate(120%);
-    opacity:0.35;
-    transform: translate(-50%,-50%);
-    pointer-events:none;
-    mix-blend-mode: screen;
-  }
-  .blob.b1{width:420px;height:420px;background:linear-gradient(135deg,#00d4ff,#6b8cff);left:10%;top:10%;animation:move1 8s ease-in-out infinite alternate;}
-  .blob.b2{width:320px;height:320px;background:linear-gradient(135deg,#ff6ad5,#ffd36b);right:8%;bottom:6%;animation:move2 9s ease-in-out infinite alternate;}
-  @keyframes move1{to{transform:translate(-40%,-45%) translateY(18px) rotate(8deg)}}
-  @keyframes move2{to{transform:translate(-48%,-52%) translateY(-18px) rotate(-6deg)}}
-
-  .grid{
-    display:grid;
-    grid-template-columns: 1fr 360px;
-    gap:1.6rem;
-    align-items:center;
-  }
-  .hero h1{
-    margin:0 0 0.6rem 0;
-    font-size: clamp(1.6rem, 3.4vw, 2.6rem);
-    letter-spacing:-0.02em;
-  }
-  .muted { color:var(--muted); margin:0 0 1.25rem 0; font-size:0.98rem; line-height:1.5 }
-
-  .typewriter {
-    font-weight:600;
-    color:var(--accent);
-    display:inline-block;
-    min-height:1.2em;
-  }
-
-  .controls{ display:flex; gap:0.6rem; align-items:center; margin-top:1.4rem }
-  .btn{
-    appearance:none;
-    border:0;
-    padding:0.7rem 1rem;
-    border-radius:10px;
-    background: linear-gradient(90deg,var(--accent),#8a8cff);
-    color:#042033;
-    font-weight:700;
-    cursor:pointer;
-    box-shadow: 0 6px 18px rgba(0,212,255,0.08);
-  }
-  .btn.ghost{
-    background:transparent;
-    border:1px solid rgba(255,255,255,0.06);
-    color:var(--muted);
-    font-weight:600;
-  }
-
-  .right {
-    background: var(--glass);
-    border-radius:12px;
-    padding:1rem;
-    border:1px solid rgba(255,255,255,0.03);
-  }
-  .card small { color:var(--muted) }
-
-  /* responsive */
-  @media (max-width:880px){
-    .grid{ grid-template-columns: 1fr; }
-    .right{ order: -1 }
-  }
-
-  footer{ margin-top:1.6rem; color:var(--muted); font-size:0.9rem; text-align:center }
-  a.link{ color:var(--accent); text-decoration:none; font-weight:600 }
-</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" >
 </head>
 <body>
-  <div class="card" role="main" aria-labelledby="title">
-    <div class="blob b1" aria-hidden="true"></div>
-    <div class="blob b2" aria-hidden="true"></div>
+  <!-- Announcement / Promo Bar -->
+<div class="promo-bar">
+  <span>GHANA SHOPPING FESTIVAL — Up to 50% OFF!</span>
+  
+  <a href="#featured" class="promo-link">Shop Now</a>
+</div>
 
-    <div class="grid">
-      <div class="hero">
-        <h1 id="title">Welcome to your cool Nginx site ✨</h1>
-        <p class="muted">A small starting template — animated, responsive, and ready to be customized.</p>
-
-        <div style="margin:1rem 0;">
-          <span class="typewriter" id="typed"></span>
-        </div>
-
-        <div class="controls">
-          <button class="btn" onclick="openDemo()">Open demo</button>
-          <button class="btn ghost" onclick="downloadHtml()">Download HTML</button>
-        </div>
+  <!-- HEADER / NAVIGATION -->
+  <header>
+    <div class="header">
+      <div class="logo-title">
+        <img src="marketmuse logo.png" alt="MarketMuse Logo" id="logo">
+        <a href="#home"><h1>MarketMuse</h1></a>
       </div>
-
-      <aside class="right" aria-label="Quick info">
-        <strong>Quick Info</strong>
-        <p class="muted" style="margin-top:0.5rem">
-          Host this file at <code>/var/www/html/index.html</code> and visit <a class="link" href="http://localhost">http://localhost</a>.
-        </p>
-
-        <div style="margin-top:1rem">
-          <small>Tips</small>
-          <ul style="color:var(--muted); margin:0.4rem 0 0 1rem">
-            <li>Edit live with <code>sudo nano /var/www/html/index.html</code></li>
-            <li>Reload Nginx: <code>sudo systemctl reload nginx</code></li>
-            <li>Want Apache on 8080? change its <code>ports.conf</code></li>
+      <nav>
+        <ul>
+          <li><a href="#hero"><i class="fas fa-home"></i> Home</a></li>
+          <li><a href="#about"><i class="fas fa-info-circle"></i> About</a></li>
+          <li><a href="#services"><i class="fas fa-cogs"></i> Services</a></li>
+          <li><a href="#pricing"><i class="fas fa-tag"></i> Pricing</a></li>
+          <li><a href="#manager"><i class="fas fa-users"></i> Manager</a></li>
+          <li><a href="#contact"><i class="fas fa-phone-alt"></i> Contact</a></li>
+        </ul>
+      </nav>
+            <!-- Cart Icon -->
+            <div class="cart-icon" id="cart-icon">
+              <i class="fas fa-shopping-cart fa-2x"></i>
+              <span class="cart-count" id="cart-count">0</span>
+            </div>
+      <!-- Account Dropdown -->
+      <div class="account-wrapper">
+        <input type="checkbox" id="account-toggle" class="account-toggle">
+        <label for="account-toggle" class="account-button">Account</label>
+        <div class="account-dropdown">
+          <ul>
+            <li><a href="#">Profile</a></li>
+            <li><a href="settings.html">Settings</a></li>
+            <li><a href="select.html">Manage Account</a></li>
+            <li><a href="#">Logout</a></li>
           </ul>
         </div>
-      </aside>
+      </div>
+    </div>
+  </header>
+    <!-- Cart Modal -->
+    <div class="modal" id="cart-modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3>Your Cart</h3>
+          <span class="close-btn" id="close-cart">&times;</span>
+        </div>
+        <div class="cart-items" id="cart-items"></div>
+        <button id="checkout-btn" class="btn">Checkout</button>
+      </div>
     </div>
 
-    <footer>
-      Built with ❤️ — modify me and make it yours.
-    </footer>
+
+  <!-- HERO / BANNER SECTION -->
+  <section class="hero" id="home">
+    <div class="leftimg"><img src="pictures/cheezit_teaser1_stillR.png" alt="left pic"></div>
+    <div class="rightimg"><img src="pictures/cheezit_teaser1_stillL.png" alt="right pic"></div>
+    <div class="slider">
+        <div class="slides">
+            <div class="slide"><img src="pictures\gh-best-skincare-products-6557978b58b57 (1).jpg" alt="Slide 1"></div>
+            <div class="slide"><img src="pictures\opt_prod_bnr.webp" alt="Slide 2"></div>
+            <div class="slide"><img src="pictures\trending-products_7ed711c4-206c-4b41-a321-711785f3a917.webp" alt="Slide 3"></div>
+        </div>
+    </div>
+    <div class="hero-content">
+        <h2>Buy & Sell with Ease</h2>
+        <p>Welcome to MarketMuse—your one-stop marketplace for all things retail.</p>
+        <a href="#featured" class="btn">Shop Now</a>
+        <a href="#sell" class="btn btn-alt">Start Selling</a>
+    </div>
+</section>
+<!-- Category Quick-Links -->
+<section class="category-links">
+  <a href="#Watches"><div class="category-card">
+    <i class="fas fa-stopwatch"></i>
+    <span>Watches</span>
   </div>
+  </a>
+  <a href="#Perfumes">
+  <div class="category-card">
+    <i class="fas fa-spray-can"></i>
+    <span>Perfumes</span>
+  </div>
+</a>
+</section>
 
-<script>
-  // Simple typewriter text
-  const messages = [
-    "Fast. Simple. Lightweight.",
-    "Designed for Nginx & local development.",
-    "Edit /var/www/html/index.html and refresh."
-  ];
-  let i = 0, j = 0, forward = true;
-  const el = document.getElementById('typed');
+  <!-- SEARCH BAR -->
+  <section class="search-bar">
+    <form action="#" method="GET">
+      <input
+        type="text"
+        name="query"
+        placeholder="Search for products..."
+        aria-label="Search Products"
+      >
+      <button type="submit"><i class="fas fa-search"></i></button>
+    </form>
+  </section>
+  <section class="flash-sales">
+    <div class="flash-sales-header">
+      <h2>Flash Sales</h2>
+      <p>Ends in: <span id="countdown"></span></p>
+    </div>
+    <div class="flash-sales-grid">
+      <div class="flash-item">
+        <div class="flash-slider">
+          <div class="flash-slides">
+            <div class="flash-slide"><img src="pictures/iphone 16/pic 1.webp" alt="iPhone 16 Front View"></div>
+            <div class="flash-slide"><img src="pictures/iphone 16/pic2.webp" alt="iPhone 16 Side View"></div>
+            <div class="flash-slide"><img src="pictures/iphone 16/pic3.jpg" alt="iPhone 16 Rear View"></div>
+          </div>
+        <br><br>
+        <h3>iPhone 16</h3>
+        <p class="flash-description">
+          Experience the future with the iPhone 16. Enjoy a 6.7-inch Super Retina XDR display, powerful A16 Bionic chip, dual-camera system for professional-grade photos, and seamless 5G connectivity – all in a sleek, premium design.
+        </p>
+        <p class="flash-price">$692.99 <span class="original-price">$799.99</span></p>
+        <button class="btn">Buy Now</button>
+    </div>
+    </div>
+          <div class="flash-item">
+        <div class="flash-slider">
+          <div class="flash-slides">
+            <div class="flash-slide"><img src="pictures/iphone 16/pic 1.webp" alt="iPhone 16 Front View"></div>
+            <div class="flash-slide"><img src="pictures/iphone 16/pic2.webp" alt="iPhone 16 Side View"></div>
+            <div class="flash-slide"><img src="pictures/iphone 16/pic3.jpg" alt="iPhone 16 Rear View"></div>
+          </div>
+        <br><br>
+        <h3>iPhone 16</h3>
+        <p class="flash-description">
+          Experience the future with the iPhone 16. Enjoy a 6.7-inch Super Retina XDR display, powerful A16 Bionic chip, dual-camera system for professional-grade photos, and seamless 5G connectivity – all in a sleek, premium design.
+        </p>
+        <p class="flash-price">$10.99 <span class="original-price">$15.99</span></p>
+        <button class="btn">Buy Now</button>
+    </div>
+    </div>
+    </div>
 
-  function tick(){
-    const msg = messages[i];
-    if(forward){
-      j++;
-      el.textContent = msg.slice(0,j);
-      if(j === msg.length){ forward=false; setTimeout(tick,1200); return; }
-    } else {
-      j--;
-      el.textContent = msg.slice(0,j);
-      if(j === 0){ forward=true; i = (i+1)%messages.length; }
-    }
-    setTimeout(tick, 60 + Math.random()*80);
-  }
-  tick();
+  </section>
+  
+  
+  <!-- FEATURED PRODUCTS SECTION -->
+  <section class="featured-products" id="featured">
+    <h1>Featured Products</h1>
+    <h2 id="Perfumes">Perfumes</h2><br>
+    <div class="products-grid1">
+      <!-- Prada Perfume -->
+      <div class="product-card" data-id="1">
+        <a href="product.html?id=1">
+          <img src="pictures/prada.webp" alt="Prada Perfume">
+          <h3>Prada Luna Rossa Ocean</h3>
+        </a>
+        <p class="description">A fresh and sophisticated fragrance with hints of bergamot and vetiver.</p>
+        <p class="price">$19.99 <span class="original-price">$25.99</span></p>
+        <p class="rating">⭐⭐⭐⭐⭐ (124 Reviews)</p>
+        <p class="stock">In Stock</p>
+        <button class="add-to-cart-btn">Add to Cart</button>
+      </div>
 
-  // demo actions
-  function openDemo(){
-    alert("Demo action — replace this with the URL of your app or service.");
-  }
+      <!-- Coach Perfume -->
+      <div class="product-card" data-id="2">
+        <a href="product.html?id=2">
+          <img src="pictures/coach.jpg" alt="Coach Perfume">
+          <h3>Coach Floral Eau de Parfum</h3>
+        </a>
+        <p class="description">A floral and fruity scent with notes of citrus, pineapple, and jasmine.</p>
+        <p class="price">$29.99 <span class="original-price">$34.99</span></p>
+        <p class="rating">⭐⭐⭐⭐ (89 Reviews)</p>
+        <p class="stock">Only 5 left!</p>
+        <button class="add-to-cart-btn">Add to Cart</button>
+      </div>
 
-  function downloadHtml(){
-    const html = document.documentElement.outerHTML;
-    const blob = new Blob([html], {type:'text/html'});
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url; a.download = 'cool-nginx-site.html';
-    document.body.appendChild(a); a.click(); a.remove();
-    URL.revokeObjectURL(url);
-  }
-</script>
+      <!-- Mon Paris Perfume -->
+      <div class="product-card" data-id="3">
+        <a href="product.html?id=3">
+          <img src="pictures/mon paris.webp" alt="Mon Paris Perfume">
+          <h3>YSL Mon Paris</h3>
+        </a>
+        <p class="description">A romantic fragrance featuring notes of raspberry, jasmine, and patchouli.</p>
+        <p class="price">$29.99 <span class="original-price">$39.99</span></p>
+        <p class="rating">⭐⭐⭐⭐⭐ (152 Reviews)</p>
+        <p class="stock">In Stock</p>
+        <button class="add-to-cart-btn">Add to Cart</button>
+      </div>
+
+      <!-- My Way Perfume -->
+      <div class="product-card" data-id="4">
+        <a href="product.html?id=4">
+          <img src="pictures/my way.jpg" alt="My Way Perfume">
+          <h3>Giorgio Armani My Way</h3>
+        </a>
+        <p class="description">A feminine scent with a blend of orange blossom, tuberose, and vanilla.</p>
+        <p class="price">$29.99 <span class="original-price">$45.99</span></p>
+        <p class="rating">⭐⭐⭐⭐⭐ (98 Reviews)</p>
+        <p class="stock">Limited Stock</p>
+        <button class="add-to-cart-btn">Add to Cart</button>
+      </div>
+
+      <!-- Secret Plus Perfume -->
+      <div class="product-card" data-id="5">
+        <a href="product.html?id=5">
+          <img src="pictures/secret plus.webp" alt="Secret Plus Perfume">
+          <h3>Secret Plus Eau de Parfum</h3>
+        </a>
+        <p class="description">A bold and long-lasting scent with warm and woody undertones.</p>
+        <p class="price">$29.99 <span class="original-price">$35.99</span></p>
+        <p class="rating">⭐⭐⭐⭐ (76 Reviews)</p>
+        <p class="stock">In Stock</p>
+        <button class="add-to-cart-btn">Add to Cart</button>
+      </div>
+
+      <!-- 1 Million Perfume -->
+      <div class="product-card" data-id="6">
+        <a href="product.html?id=6">
+          <img src="pictures/1 million.jpeg" alt="1 Million Perfume">
+          <h3>Paco Rabanne 1 Million</h3>
+        </a>
+        <p class="description">A spicy and luxurious fragrance with notes of cinnamon, amber, and leather.</p>
+        <p class="price">$29.99 <span class="original-price">$49.99</span></p>
+        <p class="rating">⭐⭐⭐⭐⭐ (210 Reviews)</p>
+        <p class="stock">Only 3 left!</p>
+        <button class="add-to-cart-btn">Add to Cart</button>
+      </div>
+    </div><br>
+    <!-- Watches Section -->
+    <h2 class="category-title" id="Watches">Watches</h2><br>
+    <div class="products-grid2">
+      <!-- Rolex Watch -->
+      <div class="product-card" data-id="7">
+        <a href="product.html?id=7">
+          <img src="pictures/rolex watch.png" alt="Rolex Watch">
+          <h3>Rolex Submariner</h3>
+        </a>
+        <p class="description">A luxury Swiss-made automatic watch with 300m water resistance.</p>
+        <p class="price">$9,499.99 <span class="original-price">$10,999.99</span></p>
+        <p class="rating">⭐⭐⭐⭐⭐ (58 Reviews)</p>
+        <p class="stock">Limited Stock</p>
+        <button class="add-to-cart-btn">Add to Cart</button>
+      </div>
+
+      <!-- Casio G-Shock -->
+      <div class="product-card" data-id="8">
+        <a href="product.html?id=8">
+          <img src="pictures/casio.jpg" alt="Casio G-Shock Watch">
+          <h3>Casio G-Shock GA-2100</h3>
+        </a>
+        <p class="description">A durable, shock-resistant sports watch with a modern design.</p>
+        <p class="price">$129.99 <span class="original-price">$149.99</span></p>
+        <p class="rating">⭐⭐⭐⭐ (112 Reviews)</p>
+        <p class="stock">In Stock</p>
+        <button class="add-to-cart-btn">Add to Cart</button>
+      </div>
+
+      <!-- Apple Watch -->
+      <div class="product-card" data-id="9">
+        <a href="product.html?id=9">
+          <img src="pictures/apple-watch.jpg" alt="Apple Watch">
+          <h3>Apple Watch Series 9</h3>
+        </a>
+        <p class="description">A smart fitness watch with advanced health tracking and GPS.</p>
+        <p class="price">$399.99 <span class="original-price">$499.99</span></p>
+        <p class="rating">⭐⭐⭐⭐⭐ (342 Reviews)</p>
+        <p class="stock">Only 2 left!</p>
+        <button class="add-to-cart-btn">Add to Cart</button>
+      </div>
+
+      <!-- Tissot PRX -->
+      <div class="product-card" data-id="10">
+        <a href="product.html?id=10">
+          <img src="pictures/tissot.jpg" alt="Tissot Watch">
+          <h3>Tissot PRX</h3>
+        </a>
+        <p class="description">A stylish Swiss watch with automatic movement and sapphire glass.</p>
+        <p class="price">$699.99 <span class="original-price">$799.99</span></p>
+        <p class="rating">⭐⭐⭐⭐⭐ (125 Reviews)</p>
+        <p class="stock">Limited Stock</p>
+        <button class="add-to-cart-btn">Add to Cart</button>
+      </div>
+
+      <!-- Omega Seamaster -->
+      <div class="product-card" data-id="11">
+        <a href="product.html?id=11">
+          <img src="pictures/omega.jpg" alt="Omega Seamaster">
+          <h3>Omega Seamaster Diver</h3>
+        </a>
+        <p class="description">A high-end dive watch with Co-Axial movement and 600m water resistance.</p>
+        <p class="price">$4,999.99 <span class="original-price">$5,499.99</span></p>
+        <p class="rating">⭐⭐⭐⭐⭐ (89 Reviews)</p>
+        <p class="stock">In Stock</p>
+        <button class="add-to-cart-btn">Add to Cart</button>
+      </div>
+
+      <!-- Fossil Chronograph -->
+      <div class="product-card" data-id="12">
+        <a href="product.html?id=12">
+          <img src="pictures/fossil.jpg" alt="Fossil Watch">
+          <h3>Fossil Chronograph</h3>
+        </a>
+        <p class="description">A budget-friendly casual watch with a classic chronograph display.</p>
+        <p class="price">$89.99 <span class="original-price">$119.99</span></p>
+        <p class="rating">⭐⭐⭐⭐ (65 Reviews)</p>
+        <p class="stock">Only 10 left!</p>
+        <button class="add-to-cart-btn">Add to Cart</button>
+      </div>
+    </div>
+  </section>
+      </div>
+  </div>
+</section>
+
+  </div>
+</section>
+
+
+<!-- SELLER / MANAGER SECTION -->
+<section class="sell-now" id="sell">
+  <h2>Become a Seller</h2>
+  <p>Got something to sell? Join our marketplace!</p>
+  <a href="seller.html"><button id="sellerAccountBtn" class="btn">Seller Account</button></a>
+</section>
+
+
+
+  <!-- ABOUT SECTION -->
+  <section class="about" id="about">
+    <h2>About MarketMuse</h2>
+    <p>
+      MarketMuse is all about revolutionizing retail by making buying and
+      selling convenient, accessible, and fun for everyone. Whether you’re
+      looking for the best deals or want to start your own online store, we
+      have you covered.
+    </p>
+  </section>
+
+  <!-- SERVICES SECTION -->
+  <section class="services" id="services">
+    <h2>Services</h2>
+    <ul>
+      <li><i class="fas fa-shipping-fast"></i> Fast Shipping</li>
+      <li><i class="fas fa-lock"></i> Secure Payment</li>
+      <li><i class="fas fa-users-cog"></i> 24/7 Customer Support</li>
+    </ul>
+  </section>
+
+  <!-- PRICING SECTION -->
+  <section class="pricing" id="pricing">
+    <h2>Pricing</h2>
+    <div class="pricing-table">
+      <div class="pricing-card">
+        <h3>Basic</h3>
+        <p class="price">$9.99 / month</p>
+        <p>Ideal for small sellers</p>
+        <button class="btn">Choose Basic</button>
+      </div>
+      <div class="pricing-card">
+        <h3>Pro</h3>
+        <p class="price">$19.99 / month</p>
+        <p>Perfect for growing businesses</p>
+        <button class="btn">Choose Pro</button>
+      </div>
+      <div class="pricing-card">
+        <h3>Enterprise</h3>
+        <p class="price">$49.99 / month</p>
+        <p>For large-scale operations</p>
+        <button class="btn">Choose Enterprise</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- MANAGER SECTION -->
+  <section class="manager" id="manager">
+    <h2>Meet Our Team</h2>
+    <div class="team">
+      <!-- Team member examples -->
+      <div class="team-member">
+        <img src="profile photos\Profile.jpg" alt="Chris' Picture" >
+        <h3>Chris </h3>
+        <p>Member 1</p>
+      </div>
+      <div class="team-member">
+        <img src="profile photos\Nana yaw.jpg" alt="Nana Yaw's Picture" >
+        <h3>Nana Yaw </h3>
+        <p>Member 2</p>
+      </div>
+      <div class="team-member">
+        <img src="profile photos\denny.jpg" alt="Denny's Picture" >
+        <h3>Denny </h3>
+        <p>Member 3</p>
+      </div>
+      <div class="team-member">
+        <img src="profile photos\edmund.jpg" alt="Edmund's Picture" >
+        <h3>Edmund </h3>
+        <p>Member 4</p>
+      </div>
+      <div class="team-member">
+        <img src="" alt="Akua's Picture" >
+        <h3>Akua </h3>
+        <p>Member 5</p>
+      </div>
+      <div class="team-member">
+        <img src="manager6.jpg" alt="Ama's Picture" >
+        <h3>Ama</h3>
+        <p>Member 6</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section class="contact" id="contact">
+    <h2>Contact Us</h2>
+    <p>Have questions? We’d love to hear from you!</p>
+    <form >
+      <input type="text" name="name" placeholder="Your Name" required >
+      <input type="email" name="email" placeholder="Your Email" required >
+      <textarea name="message" rows="5" placeholder="Your Message"></textarea>
+      <button type="submit" class="btn">Send</button>
+    </form>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2025 MarketMuse. All rights reserved.</p>
+    <div class="social-icons">
+      <a href="#"><i class="fab fa-facebook"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+    </div>
+  </footer>
+  <script src="homepage.js"></script>
 </body>
 </html>
-
