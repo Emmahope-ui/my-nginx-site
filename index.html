@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Cool Nginx Site</title>
+<style>
+  :root{
+    --bg1:#0f1724;
+    --bg2:#071028;
+    --accent: #00d4ff;
+    --muted:#9aa7b2;
+    --glass: rgba(255,255,255,0.06);
+  }
+
+  *{box-sizing:border-box}
+  html,body{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial}
+  body{
+    background: radial-gradient(1200px 600px at 10% 10%, rgba(0,212,255,0.06), transparent 8%),
+                radial-gradient(1000px 500px at 90% 90%, rgba(255,0,170,0.03), transparent 6%),
+                linear-gradient(180deg,var(--bg1),var(--bg2));
+    color:#e6eef6;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    padding:2rem;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+
+  .card{
+    width:100%;
+    max-width:980px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+    border-radius:18px;
+    padding:2.2rem;
+    box-shadow: 0 10px 30px rgba(2,6,23,0.6);
+    position:relative;
+    overflow:hidden;
+    border:1px solid rgba(255,255,255,0.03);
+  }
+
+  /* animated blobs */
+  .blob{
+    position:absolute;
+    filter: blur(40px) saturate(120%);
+    opacity:0.35;
+    transform: translate(-50%,-50%);
+    pointer-events:none;
+    mix-blend-mode: screen;
+  }
+  .blob.b1{width:420px;height:420px;background:linear-gradient(135deg,#00d4ff,#6b8cff);left:10%;top:10%;animation:move1 8s ease-in-out infinite alternate;}
+  .blob.b2{width:320px;height:320px;background:linear-gradient(135deg,#ff6ad5,#ffd36b);right:8%;bottom:6%;animation:move2 9s ease-in-out infinite alternate;}
+  @keyframes move1{to{transform:translate(-40%,-45%) translateY(18px) rotate(8deg)}}
+  @keyframes move2{to{transform:translate(-48%,-52%) translateY(-18px) rotate(-6deg)}}
+
+  .grid{
+    display:grid;
+    grid-template-columns: 1fr 360px;
+    gap:1.6rem;
+    align-items:center;
+  }
+  .hero h1{
+    margin:0 0 0.6rem 0;
+    font-size: clamp(1.6rem, 3.4vw, 2.6rem);
+    letter-spacing:-0.02em;
+  }
+  .muted { color:var(--muted); margin:0 0 1.25rem 0; font-size:0.98rem; line-height:1.5 }
+
+  .typewriter {
+    font-weight:600;
+    color:var(--accent);
+    display:inline-block;
+    min-height:1.2em;
+  }
+
+  .controls{ display:flex; gap:0.6rem; align-items:center; margin-top:1.4rem }
+  .btn{
+    appearance:none;
+    border:0;
+    padding:0.7rem 1rem;
+    border-radius:10px;
+    background: linear-gradient(90deg,var(--accent),#8a8cff);
+    color:#042033;
+    font-weight:700;
+    cursor:pointer;
+    box-shadow: 0 6px 18px rgba(0,212,255,0.08);
+  }
+  .btn.ghost{
+    background:transparent;
+    border:1px solid rgba(255,255,255,0.06);
+    color:var(--muted);
+    font-weight:600;
+  }
+
+  .right {
+    background: var(--glass);
+    border-radius:12px;
+    padding:1rem;
+    border:1px solid rgba(255,255,255,0.03);
+  }
+  .card small { color:var(--muted) }
+
+  /* responsive */
+  @media (max-width:880px){
+    .grid{ grid-template-columns: 1fr; }
+    .right{ order: -1 }
+  }
+
+  footer{ margin-top:1.6rem; color:var(--muted); font-size:0.9rem; text-align:center }
+  a.link{ color:var(--accent); text-decoration:none; font-weight:600 }
+</style>
+</head>
+<body>
+  <div class="card" role="main" aria-labelledby="title">
+    <div class="blob b1" aria-hidden="true"></div>
+    <div class="blob b2" aria-hidden="true"></div>
+
+    <div class="grid">
+      <div class="hero">
+        <h1 id="title">Welcome to your cool Nginx site ✨</h1>
+        <p class="muted">A small starting template — animated, responsive, and ready to be customized.</p>
+
+        <div style="margin:1rem 0;">
+          <span class="typewriter" id="typed"></span>
+        </div>
+
+        <div class="controls">
+          <button class="btn" onclick="openDemo()">Open demo</button>
+          <button class="btn ghost" onclick="downloadHtml()">Download HTML</button>
+        </div>
+      </div>
+
+      <aside class="right" aria-label="Quick info">
+        <strong>Quick Info</strong>
+        <p class="muted" style="margin-top:0.5rem">
+          Host this file at <code>/var/www/html/index.html</code> and visit <a class="link" href="http://localhost">http://localhost</a>.
+        </p>
+
+        <div style="margin-top:1rem">
+          <small>Tips</small>
+          <ul style="color:var(--muted); margin:0.4rem 0 0 1rem">
+            <li>Edit live with <code>sudo nano /var/www/html/index.html</code></li>
+            <li>Reload Nginx: <code>sudo systemctl reload nginx</code></li>
+            <li>Want Apache on 8080? change its <code>ports.conf</code></li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+
+    <footer>
+      Built with ❤️ — modify me and make it yours.
+    </footer>
+  </div>
+
+<script>
+  // Simple typewriter text
+  const messages = [
+    "Fast. Simple. Lightweight.",
+    "Designed for Nginx & local development.",
+    "Edit /var/www/html/index.html and refresh."
+  ];
+  let i = 0, j = 0, forward = true;
+  const el = document.getElementById('typed');
+
+  function tick(){
+    const msg = messages[i];
+    if(forward){
+      j++;
+      el.textContent = msg.slice(0,j);
+      if(j === msg.length){ forward=false; setTimeout(tick,1200); return; }
+    } else {
+      j--;
+      el.textContent = msg.slice(0,j);
+      if(j === 0){ forward=true; i = (i+1)%messages.length; }
+    }
+    setTimeout(tick, 60 + Math.random()*80);
+  }
+  tick();
+
+  // demo actions
+  function openDemo(){
+    alert("Demo action — replace this with the URL of your app or service.");
+  }
+
+  function downloadHtml(){
+    const html = document.documentElement.outerHTML;
+    const blob = new Blob([html], {type:'text/html'});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url; a.download = 'cool-nginx-site.html';
+    document.body.appendChild(a); a.click(); a.remove();
+    URL.revokeObjectURL(url);
+  }
+</script>
+</body>
+</html>
+
